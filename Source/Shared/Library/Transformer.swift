@@ -9,3 +9,13 @@ public class Transformer<T> {
     self.fromData = fromData
   }
 }
+
+
+public class KeyTransformer {
+    
+    let transform: ((String) -> String )
+
+    public init(_ transformer: @escaping ((String) -> String )) {
+        self.transform = transformer
+    }
+}

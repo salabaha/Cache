@@ -166,9 +166,10 @@ extension DiskStorage {
 
     switch fileExtension.isEmpty {
     case true:
-      return fileName
+        return config.keyTransformer?.transform(fileName) ?? fileName
     case false:
-      return "\(fileName).\(fileExtension)"
+        let name = "\(fileName).\(fileExtension)"
+        return config.keyTransformer?.transform(name) ?? name
     }
   }
 
